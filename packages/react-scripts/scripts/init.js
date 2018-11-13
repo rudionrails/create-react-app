@@ -256,6 +256,16 @@ module.exports = function(
   }
   console.log();
   console.log('Happy hacking!');
+
+  console.log();
+  console.log(chalk.red('IMPORTANT'));
+  console.log('This project uses a fork of react-scripts:');
+  console.log('    @yummy/react-scripts (https://www.npmjs.com/package/@yummy/react-scripts)');
+  console.log();
+  console.log('It adds the ability to configure the following additional .env-variables:')
+  console.log(chalk.cyan('    LIBRARY_TARGET=umd # amd, commonjs, etc'));
+  console.log(chalk.cyan('    LIBRARY=ReactApp'));
+  console.log('    see https://webpack.js.org/configuration/output/#output-librarytarget for more info.');
 };
 
 function isReactInstalled(appPackage) {

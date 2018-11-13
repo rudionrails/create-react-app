@@ -178,6 +178,10 @@ module.exports = function(webpackEnv) {
               .replace(/\\/g, '/')
         : isEnvDevelopment &&
           (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
+
+      // added by @yummy/react-scripts
+      libraryTarget: env.raw.LIBRARY_TARGET,
+      library: env.raw.LIBRARY,
     },
     optimization: {
       minimize: isEnvProduction,
