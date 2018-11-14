@@ -109,11 +109,10 @@ module.exports = function(proxy, allowedHost) {
       app.use(noopServiceWorkerMiddleware());
     },
 
-
     // Added by @yummy/react-scripts
     headers: {
       // Allow CORS requests to the devServer
-      "Access-Control-Allow-Origin": "*",
+      'Access-Control-Allow-Origin': '*',
     },
   };
 };
