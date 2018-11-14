@@ -108,5 +108,12 @@ module.exports = function(proxy, allowedHost) {
       // https://github.com/facebook/create-react-app/issues/2272#issuecomment-302832432
       app.use(noopServiceWorkerMiddleware());
     },
+
+
+    // Added by @yummy/react-scripts
+    headers: {
+      // Allow CORS requests to the devServer
+      "Access-Control-Allow-Origin": "*",
+    },
   };
 };
