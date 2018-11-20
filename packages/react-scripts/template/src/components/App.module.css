@@ -1,0 +1,16 @@
+:root {
+  --spinnerSize: 24px;
+}
+
+.app :global(.material-icons) {
+  font-size: inherit;
+}
+
+.content {
+  min-height: 25rem;
+}
+
+.search {
+  width: var(--spinnerSize);
+  height: var(--spinnerSize);
+}

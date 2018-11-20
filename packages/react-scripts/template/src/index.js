@@ -1,22 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 
-const create = ({
-  settings = {},
-  container,
-  lng,
-}) => {
+import { StoreProvider } from './store';
+import App from './components/App';
+
+export function create({ state = {}, container, lng }) {
   ReactDOM.render(
-    <App lng={lng} settings={settings} />,
-    container,
+    <StoreProvider state={state} lng={lng}>
+      <App />
+    </StoreProvider>,
+    container
   );
 
   return {
     destroy: () => ReactDOM.unmountComponentAtNode(container),
   };
-};
-
-export {
-  create,
-};
+}
