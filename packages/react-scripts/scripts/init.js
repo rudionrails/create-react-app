@@ -89,7 +89,14 @@ module.exports = function(
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
 
   // Copy over some of the devDependencies
-  appPackage.dependencies = appPackage.dependencies || {};
+  // appPackage.dependencies = appPackage.dependencies || {};
+
+  // added by @yummy/react-scripts
+  appPackage.dependencies = Object.assign({}, appPackage.dependencies, {
+    highcharts: '6.2.0',
+    'lodash.debounce': '4.0.8',
+    'query-string': '6.2.0',
+  });
 
   const useTypeScript = appPackage.dependencies['typescript'] != null;
 
@@ -260,12 +267,18 @@ module.exports = function(
   console.log();
   console.log(chalk.red('IMPORTANT'));
   console.log('This project uses a fork of react-scripts:');
-  console.log('    @yummy/react-scripts (https://www.npmjs.com/package/@yummy/react-scripts)');
+  console.log(
+    '    @yummy/react-scripts (https://www.npmjs.com/package/@yummy/react-scripts)'
+  );
   console.log();
-  console.log('It adds the ability to configure the following additional .env-variables:')
+  console.log(
+    'It adds the ability to configure the following additional .env-variables:'
+  );
   console.log(chalk.cyan('    LIBRARY_TARGET=umd # amd, commonjs, etc'));
   console.log(chalk.cyan('    LIBRARY=ReactApp'));
-  console.log('    see https://webpack.js.org/configuration/output/#output-librarytarget for more info.');
+  console.log(
+    '    see https://webpack.js.org/configuration/output/#output-librarytarget for more info.'
+  );
 };
 
 function isReactInstalled(appPackage) {
