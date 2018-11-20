@@ -1,17 +1,16 @@
 import { stringify } from 'query-string';
 
-const { fetch } = window;
+// The overall API documentation can be found here:
+//    https://www.alphavantage.co/documentation
+const apikey = 'demo';
 
+const { fetch } = window;
 const stripLeadingNumber = string => string.replace(/^\d\.\s*/, '');
 const sanitize = object =>
   Object.entries(object).reduce(
     (acc, [key, value]) => ({ ...acc, [stripLeadingNumber(key)]: value }),
     {}
   );
-
-// The overall API documentation can be found here:
-//    https://www.alphavantage.co/documentation
-const apikey = 'MDKFUSJTTPL8SX2A';
 
 // The API response has this shape (as of 2018-11)
 //
